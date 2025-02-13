@@ -2,20 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.ql-toolbar {
+  @apply bg-[#3C3C4359] text-white rounded-t-md shadow-lg h-[56px];
+}
+input {
+  @apply pt-2 pb-2 pl-[9px] w-[22px] h-[40px] border rounded-md ;
+}
+label {
+  @apply h-[22px] text-[17px];
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.ql-toolbar .ql-picker-label, 
+.ql-toolbar .ql-picker-item, 
+.ql-toolbar button {
+  @apply text-white;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.ql-toolbar button:hover, 
+.ql-toolbar .ql-picker-label:hover {
+  @apply text-yellow-400;
 }
