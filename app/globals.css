@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .ql-toolbar {
-  @apply bg-[#3C3C4359] text-white rounded-t-md shadow-lg h-[56px];
+  @apply bg-[#F2F2F7] text-white rounded-t-md shadow-lg h-[56px];
 }
 input {
   @apply pt-2 pb-2 pl-[9px] w-[22px] h-[40px] border rounded-md ;
@@ -13,12 +13,35 @@ label {
 }
 
 .ql-toolbar .ql-picker-label, 
-.ql-toolbar .ql-picker-item, 
-.ql-toolbar button {
-  @apply text-white;
+.ql-toolbar .ql-picker-label:hover {
+  @apply text-black w-8;
 }
 
-.ql-toolbar button:hover, 
-.ql-toolbar .ql-picker-label:hover {
-  @apply text-yellow-400;
+.ql-toolbar .ql-picker {
+  @apply  pb-2;
+}
+.ql-editor img {
+  @apply block max-w-full w-64 h-auto rounded-md object-cover block mx-auto;}
+.ql-container{
+  @apply max-h-none overflow-hidden
+}
+.ql-toolbar .ql-font {
+  @apply px-2 rounded-md border border-gray-300 bg-white shadow-sm text-gray-700;
+}
+
+.ql-toolbar .ql-font .ql-picker-options {
+  @apply max-h-none overflow-visible;  
+}
+
+
+.ql-toolbar .ql-font .ql-picker-options {
+  @apply max-h-[100px] overflow-y-auto;
+}
+
+.custom-select {
+  @apply w-full h-[302px] overflow-y-auto block
+}
+
+select option:checked {
+  @apply bg-[#F3E3FD]
 }

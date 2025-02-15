@@ -4,30 +4,32 @@ import "react-quill-new/dist/quill.snow.css";
 
 const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
 
-const TestTextEditor = () => {
-  const [value, setValue] = useState("");
+type TextEditorProps = {
+  value: string;
+  onChange: (value: string) => void;
+};
 
+const TestTextEditor: React.FC<TextEditorProps> = ({ value, onChange }) => {
   const modules = {
     toolbar: [
-      [{ header: "1" }, { header: "2" }, { font: [] }],
+      [{ header: "1" }, { header: "2" }],
       [{ list: "ordered" }, { list: "bullet" }],
       ["bold", "italic", "underline"],
       ["link"],
       [{ align: [] }],
       ["image"],
       [{ color: [] }, { background: [] }],
-      [{ script: "sub" }, { script: "super" }],
       ["blockquote"],
     ],
   };
 
   return (
-    <div className=" rounded-lg shadow-md w-[716px] h-[400px]">
+    <div className="rounded-lg shadow-md w-[716px] h-[400px]">
       <ReactQuill
-        className=" w-[716px] h-[344px] mt-6"
+        className="w-[716px] h-[344px] mt-6"
         theme="snow"
         value={value}
-        onChange={setValue}
+        onChange={onChange} 
         modules={modules}
       />
     </div>
