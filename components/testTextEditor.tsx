@@ -24,7 +24,7 @@ const TestTextEditor: React.FC<TextEditorProps> = ({ value, onChange }) => {
   };
 
   return (
-    <div className="rounded-lg shadow-md w-[716px] h-[400px]">
+    <div className="rounded-lg w-[716px] h-[400px]">
       <ReactQuill
         className="w-[716px] h-[344px] mt-6"
         theme="snow"

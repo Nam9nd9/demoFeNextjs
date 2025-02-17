@@ -15,26 +15,25 @@ import {
   Legend,
   Label,
 } from "recharts";
-import { generateMockData, generateMonthlyMockData } from "../utils/mockData";
+import { generateMockData,genarateSellData, generateMonthlyMockData } from "../utils/mockData";
 
 const transportData = generateMockData();
 const doanhthu = generateMonthlyMockData();
+const sellData = genarateSellData();
 
-const sellData = [
-  { id: 3, value: 15110, label: "Bàn chải" },
-  { id: 2, value: 12529, label: "Nước hoa" },
-  { id: 1, value: 73253, label: "Dưỡng ẩm" },
-];
-const COLORS = ["#003780", "#0058CC", "#338BFF"];
+
+console.log(transportData.length);
+
+const COLORS = ["#003780", "#0058CC", "#338BFF","green","red"];
 
 const AboutPage = () => {
   const [selectedDayOption, setSelectedDayOption] = useState(10);
   const [selectedMonthOption, setSelectedMonthOption] = useState(6);
   const [filteredDayData, setFilteredDayData] = useState(
-    transportData.slice(transportData.length - 10)
+    transportData.slice(transportData.length - 3)
   );
   const [filteredMonthData, setFilteredMonthData] = useState(
-    doanhthu.slice(doanhthu.length - 6)
+    doanhthu.slice(doanhthu.length - 1)
   );
 
 
@@ -62,18 +61,18 @@ const AboutPage = () => {
                 value={selectedDayOption}
                 onChange={handleSelectDay}
               >
-                <option value={10}>10 ngày</option>
-                <option value={20}>20 ngày</option>
-                <option value={30}>30 ngày</option>
+                <option value={3}>3 ngày</option>
+                <option value={5}>5 ngày</option>
+                <option value={7}>7 ngày</option>
               </select>
             </div>
             <div className="w-[979px] h-[300px] mt-8">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={filteredDayData}>
-                  <XAxis dataKey="day" />
+                  <XAxis dataKey="day" tickCount={10}/>
                   <YAxis tickCount={6} />
                   <Tooltip />
-                  <Bar dataKey="revenue" fill="#8884d8" barSize={120} />
+                  <Bar dataKey="revenue" name="Thông số" fill="#8884d8" barSize={200} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -85,8 +84,8 @@ const AboutPage = () => {
                 <PieChart>
                   <Pie
                     data={sellData}
-                    dataKey="value"
-                    nameKey="label"
+                    dataKey="quantity"
+                    nameKey="product"
                     outerRadius={100}
                     fill="#8884d8"
                     label
@@ -120,20 +119,21 @@ const AboutPage = () => {
             <select className="w-[117px] h-[28px] pl-2 bg-[#6464963D] text-black border border-gray-300 rounded-md" 
             value={selectedMonthOption}
             onChange={handleSelectMonth}>
-              <option value={12}>1 năm qua</option>
-              <option value={9}>9 tháng qua</option>
-              <option value={6}>6 tháng qua</option>
+              <option value={1}>1 ngày qua</option>
+              <option value={3}>3 ngày qua</option>
+              <option value={7}>7 ngày qua</option>
             </select>
           </div>
           <div className="h-[366px] w-full mt-6">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={filteredMonthData}>
+              <BarChart data={filteredMonthData} barGap={5}>
                 <Legend align="center" verticalAlign="top" fontSize="24px" />
-                <XAxis dataKey="month" />
-                <YAxis tickCount={6} interval="preserveStartEnd" domain={[0, 100]} />
+                <XAxis dataKey="day"/>
+                <YAxis yAxisId="left" tickCount={6} interval="preserveStartEnd" domain={[0, 100]} />
+                <YAxis yAxisId="right" orientation="right" tickCount={6} interval="preserveStartEnd" domain={[0, 10]} />
                 <Tooltip />
-                <Bar dataKey="loinhuan" name=" Lợi nhuận" fill="#8884d8" barSize={95} />
-                <Bar dataKey="doanhthu" name=" Doanh thu" fill="green" barSize={95} />
+                <Bar dataKey="loinhuan" name=" Lợi nhuận" fill="#8884d8" barSize={100} yAxisId="right" />
+                <Bar dataKey="doanhthu" name=" Doanh thu" fill="green" barSize={100} yAxisId="left" />
               </BarChart>
             </ResponsiveContainer>
           </div>

@@ -16,6 +16,9 @@ label {
 .ql-toolbar .ql-picker-label:hover {
   @apply text-black w-8;
 }
+.ql-toolbar .ql-formats {
+  @apply mt-1
+}
 
 .ql-toolbar .ql-picker {
   @apply  pb-2;
