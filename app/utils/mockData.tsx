@@ -51,14 +51,168 @@ export function genarateSellData(){
 export function generateProductMockData() {
   const mockData = [];
   
-  for (let i = 1; i <= 200; i++) {
+  for (let i = 1; i <= 4; i++) {
     mockData.push({
       id: i,
       name: `Sản phẩm ${i}`,
-      image: `/img/cho1.jpg`,
+      image: `/img/cho${i}.jpg`,
       type: `SP${i}`,
     });
   }
 
   return mockData;
 }
+
+// utils/mockData.ts
+export function generateShippingMockData() {
+  return [
+    // delivery_status
+    {
+      id: 1,
+      orderId: "ORD001",
+      date: "2025-02-10",
+      customerName: "Nguyễn Văn A",
+      shippingStatus: "TRANSACTION",  // Trạng thái vận chuyển
+      type: "delivery_status",  // Loại trạng thái
+    },
+    {
+      id: 2,
+      orderId: "ORD002",
+      date: "2025-02-11",
+      customerName: "Trần Thị B",
+      shippingStatus: "RETURNING",  // Trạng thái vận chuyển
+      type: "delivery_status",  // Loại trạng thái
+    },
+    {
+      id: 3,
+      orderId: "ORD003",
+      date: "2025-02-12",
+      customerName: "Lê Văn C",
+      shippingStatus: "RETURNED",  // Trạng thái vận chuyển
+      type: "delivery_status",  // Loại trạng thái
+    },
+    {
+      id: 4,
+      orderId: "ORD004",
+      date: "2025-02-13",
+      customerName: "Phạm Thị D",
+      shippingStatus: "PICKING",  // Trạng thái vận chuyển
+      type: "delivery_status",  // Loại trạng thái
+    },
+    {
+      id: 5,
+      orderId: "ORD005",
+      date: "2025-02-14",
+      customerName: "Nguyễn Thị E",
+      shippingStatus: "DELIVERED",  // Trạng thái vận chuyển
+      type: "delivery_status",  // Loại trạng thái
+    },
+    {
+      id: 6,
+      orderId: "ORD006",
+      date: "2025-02-15",
+      customerName: "Vũ Minh F",
+      shippingStatus: "CANCEL",  // Trạng thái vận chuyển
+      type: "delivery_status",  // Loại trạng thái
+    },
+
+    // payment_status
+    {
+      id: 7,
+      orderId: "ORD007",
+      date: "2025-02-16",
+      customerName: "Lê Minh G",
+      shippingStatus: "PAYMENT",  // Trạng thái vận chuyển
+      type: "payment_status",  // Loại trạng thái
+    },
+    {
+      id: 8,
+      orderId: "ORD008",
+      date: "2025-02-17",
+      customerName: "Trần Anh H",
+      shippingStatus: "PARTIAL_PAYMENT",  // Trạng thái vận chuyển
+      type: "payment_status",  // Loại trạng thái
+    },
+    {
+      id: 9,
+      orderId: "ORD009",
+      date: "2025-02-18",
+      customerName: "Nguyễn Thị I",
+      shippingStatus: "UNPAID",  // Trạng thái vận chuyển
+      type: "payment_status",  // Loại trạng thái
+    },
+
+    // invoice_status
+    {
+      id: 10,
+      orderId: "ORD010",
+      date: "2025-02-19",
+      customerName: "Phạm Minh J",
+      shippingStatus: "CANCEL",  // Trạng thái vận chuyển
+      type: "invoice_status",  // Loại trạng thái
+    },
+    {
+      id: 11,
+      orderId: "ORD011",
+      date: "2025-02-20",
+      customerName: "Vũ Minh K",
+      shippingStatus: "DELIVERING",  // Trạng thái vận chuyển
+      type: "invoice_status",  // Loại trạng thái
+    },
+    {
+      id: 12,
+      orderId: "ORD012",
+      date: "2025-02-21",
+      customerName: "Lê Thị L",
+      shippingStatus: "DELIVERED",  // Trạng thái vận chuyển
+      type: "invoice_status",  // Loại trạng thái
+    },
+    {
+      id: 13,
+      orderId: "ORD013",
+      date: "2025-02-22",
+      customerName: "Trần Minh M",
+      shippingStatus: "TRANSACTION",  // Trạng thái vận chuyển
+      type: "invoice_status",  // Loại trạng thái
+    },
+
+    // product_status
+    {
+      id: 14,
+      orderId: "ORD014",
+      date: "2025-02-23",
+      customerName: "Lê Thị N",
+      shippingStatus: "Ngừng giao dịch",  // Trạng thái vận chuyển
+      type: "product_status",  // Loại trạng thái
+      dry_stock: false,  // Không có hàng khô
+    },
+    {
+      id: 15,
+      orderId: "ORD015",
+      date: "2025-02-24",
+      customerName: "Phạm Minh O",
+      shippingStatus: "Đang giao dịch",  // Trạng thái vận chuyển
+      type: "product_status",  // Loại trạng thái
+      dry_stock: true,  // Có hàng khô
+    },
+
+    // inspection_status
+    {
+      id: 16,
+      orderId: "ORD016",
+      date: "2025-02-25",
+      customerName: "Nguyễn Thị P",
+      shippingStatus: "Đã kiểm xong",  // Trạng thái vận chuyển
+      type: "inspection_status",  // Loại trạng thái
+    },
+    {
+      id: 17,
+      orderId: "ORD017",
+      date: "2025-02-26",
+      customerName: "Trần Minh Q",
+      shippingStatus: "Đang kiểm",  // Trạng thái vận chuyển
+      type: "inspection_status",  // Loại trạng thái
+    },
+  ];
+}
+
